@@ -25,8 +25,8 @@ A full-stack web application inspired by LeetCode, designed to allow users to cr
 ---
 
 **Repository Links**  
-- [Backend Repository](https://github.com/TehilaTheStudent/SkillCode-frontend)  
-- [Frontend Repository](https://github.com/TehilaTheStudent/SkillCode-backend)  
+- [Frontend Repository](https://github.com/TehilaTheStudent/SkillCode-frontend)  
+- [Backend Repository](https://github.com/TehilaTheStudent/SkillCode-backend)  
 
 ---
 
