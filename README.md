@@ -1,4 +1,7 @@
-# **SkillCode Platform Documentation**
+**Skill Code Platform Documentation**
+
+## Backend: [https://github.com/TehilaTheStudent/SkillCode-backend](https://github.com/TehilaTheStudent/SkillCode-backend)
+## Frontend: [https://github.com/TehilaTheStudent/SkillCode-frontend](https://github.com/TehilaTheStudent/SkillCode-frontend)
 
 - user-less platform
 - Manage collection of questions: CRUD methods
@@ -47,7 +50,7 @@
   - to start without the seed db
 
 - check google docs about the UI [[UI NOTES](https://docs.google.com/document/d/1ALAKcifoX5DRHbdMJkeR07SC64mj_ZiGxcPbDIpEtEw/edit?usp=sharing)]
-- check backedn logs at logs/app.log
+- check backedn logs at logs dir
 ---
 ### issue: 
 - my-cluster can be present but container my-cluster-control-plane missing (deleted by  user couse its created by default)- server will exit immediately
