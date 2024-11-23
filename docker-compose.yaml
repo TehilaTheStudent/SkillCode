@@ -4,8 +4,8 @@ services:
     image: mongo:latest
     container_name: mongo
     network_mode: "host"  # Use host network
-    # ports:
-    #   - "27017:27017"
+    ports:
+      - "27017:27017"
     volumes:
       - mongo-data:/data/db
   seed-db:
@@ -26,8 +26,8 @@ services:
     image: tehilathestudent/skillcode-backend:latest
     container_name: skillcode-backend
     network_mode: "host"  # Use host network
-    # ports:
-    #   - "8080:8080"
+    ports:
+      - "8080:8080"
     depends_on:
       - mongo
     environment:
