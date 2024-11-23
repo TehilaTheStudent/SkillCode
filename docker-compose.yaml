@@ -3,7 +3,7 @@ services:
   mongo:
     image: mongo:latest
     container_name: mongo
-    network_mode: "host"  # Use host network
+    # network_mode: "host"  # Use host network
     ports:
       - "27017:27017"
     volumes:
@@ -13,11 +13,11 @@ services:
     container_name: seed-db
     depends_on:
       - mongo
-    network_mode: "host"
+    # network_mode: "host"
     volumes:
       - ./seed_scripts:/seed_scripts  # Mount the directory containing your Python script
     environment:
-      - MONGO_URI=mongodb://localhost:27017
+      - MONGO_URI=mongodb://mongo:27017
       - DATABASE_NAME=skillcode_db
     command: >
       sh -c "pip install -r /seed_scripts/requirements.txt && cd /seed_scripts/ && python drop_post.py"
@@ -25,13 +25,15 @@ services:
   skillcode-backend:
     image: tehilathestudent/skillcode-backend:latest
     container_name: skillcode-backend
-    network_mode: "host"  # Use host network
+    # network_mode: "host"  # Use host network
+    extra_hosts:
+    - "host.docker.internal:host-gateway" # Allows container to access host network
     ports:
       - "8080:8080"
     depends_on:
       - mongo
     environment:
-      - MONGO_URI=mongodb://localhost:27017
+      - MONGO_URI=mongodb://mongo:27017
       - MONGO_DB=skillcode_db
       - KUBECONFIG=/root/.kube/config
       - PORT=8080
@@ -46,7 +48,7 @@ services:
     depends_on:
       - skillcode-backend          # Ensure the backend starts first
     environment:
-      - BACKEND_URL=http://localhost:8080/skillcode    # URL to access your backend API
+      - BACKEND_URL=http://skillcode-backend:8080/skillcode    # URL to access your backend API
     ports:
       - "3000:3000" 
 volumes:
